@@ -204,40 +204,40 @@ void editContact(AddressBook *addressbook)
     }
 }
 
-// void deleteContact(AddressBook *addressbook) 
-// {
-//     loadContact(addressbook);
-//     if (addressbook->contactcount == 0) 
-//     {
-//         printf("No contacts available to delete.\n");
-//         return;
-//     }
-//     char contacttodelete[100];
-//     printf("Enter the name of the contact to delete: ");
-//     scanf("%[^\n]", contacttodelete);
-//     getchar(); 
-//     int found = 0;
-//     for (int i = 0; i < addressbook->contactcount; i++) 
-//     {
-//         if (strcmp(addressbook->contacts[i].name, contacttodelete) == 0) 
-//         {
-//             found = 1;
-//             for (int j = i; j < addressbook->contactcount - 1; j++) 
-//             {
-//                 addressbook->contacts[j] = addressbook->contacts[j + 1];
-//             }
-//             addressbook->contactcount--;
-//             printf("Contact '%s' deleted successfully.\n", contacttodelete);
-//             break;
-//         }
-//     }
+void deleteContact(AddressBook *addressbook) 
+{
+    loadContact(addressbook);
+    if (addressbook->contactcount == 0) 
+    {
+        printf("No contacts available to delete.\n");
+        return;
+    }
+    char contacttodelete[100];
+    printf("Enter the name of the contact to delete: ");
+    scanf("%[^\n]", contacttodelete);
+    getchar(); 
+    int found = 0;
+    for (int i = 0; i < addressbook->contactcount; i++) 
+    {
+        if (strcmp(addressbook->contacts[i].name, contacttodelete) == 0) 
+        {
+            found = 1;
+            for (int j = i; j < addressbook->contactcount - 1; j++) 
+            {
+                addressbook->contacts[j] = addressbook->contacts[j + 1];
+            }
+            addressbook->contactcount--;
+            printf("Contact '%s' deleted successfully.\n", contacttodelete);
+            break;
+        }
+    }
 
-//     if (!found) 
-//     {
-//         printf("Contact '%s' not found.\n", contacttodelete);
-//     } 
-//     else 
-//     {
-//         saveContact(addressbook);
-//     }
-// }
+    if (!found) 
+    {
+        printf("Contact '%s' not found.\n", contacttodelete);
+    } 
+    else 
+    {
+        saveContact(addressbook);
+    }
+}
